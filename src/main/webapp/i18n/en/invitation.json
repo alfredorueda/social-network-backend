@@ -1,0 +1,24 @@
+{
+  "socialNetworkBackendApp": {
+    "invitation": {
+      "home": {
+        "title": "Invitations",
+        "createLabel": "Create a new Invitation",
+        "createOrEditLabel": "Create or edit a Invitation"
+      },
+      "created": "A new Invitation is created with identifier {{ param }}",
+      "updated": "A Invitation is updated with identifier {{ param }}",
+      "deleted": "A Invitation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Invitation {{ id }}?"
+      },
+      "detail": {
+        "title": "Invitation"
+      },
+      "createdDate": "Created Date",
+      "accepted": "Accepted",
+      "sent": "Sent",
+      "received": "Received"
+    }
+  }
+}

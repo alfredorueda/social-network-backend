@@ -1,0 +1,142 @@
+{
+    "name": "Profile",
+    "fields": [
+        {
+            "fieldName": "birthDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "picture",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "height",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "weight",
+            "fieldType": "Double"
+        },
+        {
+            "fieldName": "unitSystem",
+            "fieldType": "UnitSystem",
+            "fieldValues": "IMPERIAL,METRIC"
+        },
+        {
+            "fieldName": "aboutMe",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "displayName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "showAge",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "banned",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "filterPreferences",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "location",
+            "otherEntityRelationshipName": "user",
+            "relationshipName": "location",
+            "otherEntityField": "address",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "profile",
+            "relationshipName": "user",
+            "otherEntityField": "login",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "relationship",
+            "otherEntityRelationshipName": "user",
+            "relationshipName": "relationship",
+            "otherEntityField": "status"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "gender",
+            "otherEntityRelationshipName": "user",
+            "relationshipName": "gender",
+            "otherEntityField": "type"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "ethnicity",
+            "otherEntityRelationshipName": "user",
+            "relationshipName": "ethnicity",
+            "otherEntityField": "ethnicity"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "invitation",
+            "otherEntityRelationshipName": "sent",
+            "relationshipName": "sentInvitation"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "invitation",
+            "otherEntityRelationshipName": "received",
+            "relationshipName": "receivedInvitation"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "block",
+            "otherEntityRelationshipName": "sent",
+            "relationshipName": "sentBlock"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "block",
+            "otherEntityRelationshipName": "received",
+            "relationshipName": "receivedBlock"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "message",
+            "otherEntityRelationshipName": "sender",
+            "relationshipName": "sentMessage"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "chatroom",
+            "otherEntityRelationshipName": "admin",
+            "relationshipName": "adminChatroom"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "chatroom",
+            "otherEntityRelationshipName": "participant",
+            "relationshipName": "joinedChatroom",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20190419151523",
+    "entityTableName": "profile",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

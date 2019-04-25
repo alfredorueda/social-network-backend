@@ -1,0 +1,41 @@
+{
+    "name": "Invitation",
+    "fields": [
+        {
+            "fieldName": "createdDate",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "accepted",
+            "fieldType": "Boolean"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "profile",
+            "otherEntityRelationshipName": "sentInvitation",
+            "relationshipName": "sent",
+            "otherEntityField": "login"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "profile",
+            "otherEntityRelationshipName": "receivedInvitation",
+            "relationshipName": "received",
+            "otherEntityField": "login"
+        }
+    ],
+    "changelogDate": "20190419151528",
+    "entityTableName": "invitation",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

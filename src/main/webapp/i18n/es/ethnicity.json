@@ -1,0 +1,22 @@
+{
+  "socialNetworkBackendApp": {
+    "ethnicity": {
+      "home": {
+        "title": "Ethnicities",
+        "createLabel": "Crear nuevo Ethnicity",
+        "createOrEditLabel": "Crear o editar Ethnicity"
+      },
+      "created": "Un nuevo Ethnicity ha sido creado con el identificador {{ param }}",
+      "updated": "Un Ethnicity ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Ethnicity ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Ethnicity {{ id }}?"
+      },
+      "detail": {
+        "title": "Ethnicity"
+      },
+      "ethnicity": "Ethnicity",
+      "user": "User"
+    }
+  }
+}

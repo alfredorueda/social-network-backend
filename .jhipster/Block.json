@@ -1,0 +1,37 @@
+{
+    "name": "Block",
+    "fields": [
+        {
+            "fieldName": "createdDate",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "profile",
+            "otherEntityRelationshipName": "sentBlock",
+            "relationshipName": "sent",
+            "otherEntityField": "login"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "profile",
+            "otherEntityRelationshipName": "receivedBlock",
+            "relationshipName": "received",
+            "otherEntityField": "login"
+        }
+    ],
+    "changelogDate": "20190419151529",
+    "entityTableName": "block",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

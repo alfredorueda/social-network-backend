@@ -1,0 +1,23 @@
+{
+  "socialNetworkBackendApp": {
+    "block": {
+      "home": {
+        "title": "Blocks",
+        "createLabel": "Crear nuevo Block",
+        "createOrEditLabel": "Crear o editar Block"
+      },
+      "created": "Un nuevo Block ha sido creado con el identificador {{ param }}",
+      "updated": "Un Block ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Block ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Block {{ id }}?"
+      },
+      "detail": {
+        "title": "Block"
+      },
+      "createdDate": "Created Date",
+      "sent": "Sent",
+      "received": "Received"
+    }
+  }
+}

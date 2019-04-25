@@ -1,0 +1,58 @@
+{
+    "name": "Message",
+    "fields": [
+        {
+            "fieldName": "createdDate",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "message",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "url",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "picture",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "location",
+            "otherEntityRelationshipName": "message",
+            "relationshipName": "location",
+            "otherEntityField": "address",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "profile",
+            "otherEntityRelationshipName": "sentMessage",
+            "relationshipName": "sender",
+            "otherEntityField": "displayName"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "chatroom",
+            "otherEntityRelationshipName": "message",
+            "relationshipName": "chatroom",
+            "otherEntityField": "topic"
+        }
+    ],
+    "changelogDate": "20190419151531",
+    "entityTableName": "message",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

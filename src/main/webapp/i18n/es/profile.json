@@ -1,0 +1,42 @@
+{
+  "socialNetworkBackendApp": {
+    "profile": {
+      "home": {
+        "title": "Profiles",
+        "createLabel": "Crear nuevo Profile",
+        "createOrEditLabel": "Crear o editar Profile"
+      },
+      "created": "Un nuevo Profile ha sido creado con el identificador {{ param }}",
+      "updated": "Un Profile ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Profile ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Profile {{ id }}?"
+      },
+      "detail": {
+        "title": "Profile"
+      },
+      "birthDate": "Birth Date",
+      "picture": "Picture",
+      "height": "Height",
+      "weight": "Weight",
+      "unitSystem": "Unit System",
+      "aboutMe": "About Me",
+      "displayName": "Display Name",
+      "showAge": "Show Age",
+      "banned": "Banned",
+      "filterPreferences": "Filter Preferences",
+      "location": "Location",
+      "user": "User",
+      "relationship": "Relationship",
+      "gender": "Gender",
+      "ethnicity": "Ethnicity",
+      "sentInvitation": "Sent Invitation",
+      "receivedInvitation": "Received Invitation",
+      "sentBlock": "Sent Block",
+      "receivedBlock": "Received Block",
+      "sentMessage": "Sent Message",
+      "adminChatroom": "Admin Chatroom",
+      "joinedChatroom": "Joined Chatroom"
+    }
+  }
+}

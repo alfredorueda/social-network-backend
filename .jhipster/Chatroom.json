@@ -1,0 +1,51 @@
+{
+    "name": "Chatroom",
+    "fields": [
+        {
+            "fieldName": "createdDate",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "topic",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "profile",
+            "otherEntityRelationshipName": "adminChatroom",
+            "relationshipName": "admin",
+            "otherEntityField": "displayName"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "profile",
+            "otherEntityRelationshipName": "joinedChatroom",
+            "relationshipName": "participant",
+            "otherEntityField": "displayName",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "message",
+            "otherEntityRelationshipName": "chatroom",
+            "relationshipName": "message"
+        }
+    ],
+    "changelogDate": "20190419151530",
+    "entityTableName": "chatroom",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

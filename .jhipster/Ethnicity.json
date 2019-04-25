@@ -1,0 +1,29 @@
+{
+    "name": "Ethnicity",
+    "fields": [
+        {
+            "fieldName": "ethnicity",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "profile",
+            "otherEntityRelationshipName": "ethnicity",
+            "relationshipName": "user"
+        }
+    ],
+    "changelogDate": "20190419151525",
+    "entityTableName": "ethnicity",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

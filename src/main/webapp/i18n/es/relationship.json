@@ -1,0 +1,22 @@
+{
+  "socialNetworkBackendApp": {
+    "relationship": {
+      "home": {
+        "title": "Relationships",
+        "createLabel": "Crear nuevo Relationship",
+        "createOrEditLabel": "Crear o editar Relationship"
+      },
+      "created": "Un nuevo Relationship ha sido creado con el identificador {{ param }}",
+      "updated": "Un Relationship ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Relationship ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Relationship {{ id }}?"
+      },
+      "detail": {
+        "title": "Relationship"
+      },
+      "status": "Status",
+      "user": "User"
+    }
+  }
+}

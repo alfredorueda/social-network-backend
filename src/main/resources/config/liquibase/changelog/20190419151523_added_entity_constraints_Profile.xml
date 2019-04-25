@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Profile.
+    -->
+    <changeSet id="20190419151523-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="location_id"
+                                 baseTableName="profile"
+                                 constraintName="fk_profile_location_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="location"/>
+
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="profile"
+                                 constraintName="fk_profile_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="relationship_id"
+                                 baseTableName="profile"
+                                 constraintName="fk_profile_relationship_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="relationship"/>
+
+        <addForeignKeyConstraint baseColumnNames="gender_id"
+                                 baseTableName="profile"
+                                 constraintName="fk_profile_gender_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="gender"/>
+
+        <addForeignKeyConstraint baseColumnNames="ethnicity_id"
+                                 baseTableName="profile"
+                                 constraintName="fk_profile_ethnicity_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ethnicity"/>
+
+    </changeSet>
+</databaseChangeLog>

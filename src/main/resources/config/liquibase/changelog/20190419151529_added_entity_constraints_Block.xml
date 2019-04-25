@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Block.
+    -->
+    <changeSet id="20190419151529-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="sent_id"
+                                 baseTableName="block"
+                                 constraintName="fk_block_sent_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="profile"/>
+
+        <addForeignKeyConstraint baseColumnNames="received_id"
+                                 baseTableName="block"
+                                 constraintName="fk_block_received_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="profile"/>
+
+    </changeSet>
+</databaseChangeLog>

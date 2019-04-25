@@ -1,0 +1,29 @@
+{
+    "name": "Gender",
+    "fields": [
+        {
+            "fieldName": "type",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "profile",
+            "otherEntityRelationshipName": "gender",
+            "relationshipName": "user"
+        }
+    ],
+    "changelogDate": "20190419151524",
+    "entityTableName": "gender",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

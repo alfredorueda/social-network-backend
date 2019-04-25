@@ -1,0 +1,27 @@
+{
+  "socialNetworkBackendApp": {
+    "message": {
+      "home": {
+        "title": "Messages",
+        "createLabel": "Create a new Message",
+        "createOrEditLabel": "Create or edit a Message"
+      },
+      "created": "A new Message is created with identifier {{ param }}",
+      "updated": "A Message is updated with identifier {{ param }}",
+      "deleted": "A Message is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Message {{ id }}?"
+      },
+      "detail": {
+        "title": "Message"
+      },
+      "createdDate": "Created Date",
+      "message": "Message",
+      "url": "Url",
+      "picture": "Picture",
+      "location": "Location",
+      "sender": "Sender",
+      "chatroom": "Chatroom"
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+    "name": "Relationship",
+    "fields": [
+        {
+            "fieldName": "status",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "profile",
+            "otherEntityRelationshipName": "relationship",
+            "relationshipName": "user"
+        }
+    ],
+    "changelogDate": "20190419151526",
+    "entityTableName": "relationship",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

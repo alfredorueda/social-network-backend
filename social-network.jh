@@ -1,0 +1,94 @@
+
+entity Profile {
+    birthDate LocalDate,
+    picture ImageBlob,
+    height Double,
+    weight Double,
+    unitSystem UnitSystem,
+    aboutMe String,
+    displayName String required,
+    showAge Boolean,
+    banned Boolean,
+    filterPreferences String
+}
+
+entity Gender {
+	type String required
+}
+
+entity Ethnicity {
+	ethnicity String required
+}
+
+enum UnitSystem {
+	IMPERIAL, METRIC
+}
+
+entity Relationship {
+	status String required
+}
+
+entity Location {
+	latitude Double required,
+    longitude Double required,
+    urlGoogleMaps String,
+    urlOpenStreetMap String,
+    address String,
+	postalCode String,
+	city String,
+	stateProvice String,
+    county String,
+    country String
+}
+
+entity Invitation {
+	createdDate ZonedDateTime required,
+    accepted Boolean
+}
+
+entity Block {
+	createdDate ZonedDateTime required    
+}
+
+entity Chatroom {
+	createdDate ZonedDateTime required,
+    topic String required
+}
+
+entity Message {
+	createdDate ZonedDateTime required,
+    message String,
+    url String,
+    picture ImageBlob
+}
+
+
+relationship ManyToOne {
+	Invitation{sent(login)} to Profile{sentInvitation},
+    Invitation{received(login)} to Profile{receivedInvitation},
+    Block{sent(login)} to Profile{sentBlock},
+    Block{received(login)} to Profile{receivedBlock},
+    Profile{relationship(status)} to Relationship{user},
+    Profile{gender(type)} to Gender{user},
+    Profile{ethnicity(ethnicity)} to Ethnicity{user},
+    Message{sender(displayName)} to Profile{sentMessage},
+    Message{chatroom(topic)} to Chatroom{message},
+    Chatroom{admin(displayName)} to Profile{adminChatroom}
+}
+
+relationship ManyToMany {
+	Chatroom{participant(displayName)} to Profile{joinedChatroom}
+}
+
+relationship OneToOne {
+	Profile{location(address)} to Location{user},
+    Message{location(address)} to Location{message},
+    Profile{user(login)} to User
+}
+
+filter * 
+service * with serviceClass
+// Set pagination options
+paginate * with infinite-scroll
+
+

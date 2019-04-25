@@ -1,0 +1,76 @@
+{
+    "name": "Location",
+    "fields": [
+        {
+            "fieldName": "latitude",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "longitude",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "urlGoogleMaps",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "urlOpenStreetMap",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "address",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "postalCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "city",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "stateProvice",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "county",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "country",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "profile",
+            "otherEntityRelationshipName": "location",
+            "relationshipName": "user",
+            "ownerSide": false
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "message",
+            "otherEntityRelationshipName": "location",
+            "relationshipName": "message",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20190419151527",
+    "entityTableName": "location",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

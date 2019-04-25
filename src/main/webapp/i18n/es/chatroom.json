@@ -1,0 +1,25 @@
+{
+  "socialNetworkBackendApp": {
+    "chatroom": {
+      "home": {
+        "title": "Chatrooms",
+        "createLabel": "Crear nuevo Chatroom",
+        "createOrEditLabel": "Crear o editar Chatroom"
+      },
+      "created": "Un nuevo Chatroom ha sido creado con el identificador {{ param }}",
+      "updated": "Un Chatroom ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Chatroom ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Chatroom {{ id }}?"
+      },
+      "detail": {
+        "title": "Chatroom"
+      },
+      "createdDate": "Created Date",
+      "topic": "Topic",
+      "admin": "Admin",
+      "participant": "Participant",
+      "message": "Message"
+    }
+  }
+}

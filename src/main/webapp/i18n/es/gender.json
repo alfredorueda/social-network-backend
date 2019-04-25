@@ -1,0 +1,22 @@
+{
+  "socialNetworkBackendApp": {
+    "gender": {
+      "home": {
+        "title": "Genders",
+        "createLabel": "Crear nuevo Gender",
+        "createOrEditLabel": "Crear o editar Gender"
+      },
+      "created": "Un nuevo Gender ha sido creado con el identificador {{ param }}",
+      "updated": "Un Gender ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Gender ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Gender {{ id }}?"
+      },
+      "detail": {
+        "title": "Gender"
+      },
+      "type": "Type",
+      "user": "User"
+    }
+  }
+}
