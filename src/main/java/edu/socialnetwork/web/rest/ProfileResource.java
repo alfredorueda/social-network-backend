@@ -1,30 +1,32 @@
 package edu.socialnetwork.web.rest;
 
+import edu.socialnetwork.domain.Location;
 import edu.socialnetwork.domain.Profile;
 import edu.socialnetwork.repository.ProfileRepository;
 import edu.socialnetwork.security.SecurityUtils;
+import edu.socialnetwork.service.ProfileQueryService;
 import edu.socialnetwork.service.ProfileService;
+import edu.socialnetwork.service.dto.ProfileCriteria;
+import edu.socialnetwork.service.dto.ProfileDistanceDTO;
 import edu.socialnetwork.web.rest.errors.BadRequestAlertException;
 import edu.socialnetwork.web.rest.util.HeaderUtil;
 import edu.socialnetwork.web.rest.util.PaginationUtil;
-import edu.socialnetwork.service.dto.ProfileCriteria;
-import edu.socialnetwork.service.ProfileQueryService;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
-
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * REST controller for managing Profile.
@@ -102,7 +104,7 @@ public class ProfileResource {
 
         Optional<Profile> currentProfileOptional = profileRepository.findByUserLogin(SecurityUtils.getCurrentUserLogin().get());
 
-        if(!currentProfileOptional.isPresent()){
+        if (!currentProfileOptional.isPresent()) {
             return ResponseEntity
                 .notFound()
                 .headers(HeaderUtil.createFailureAlert(ENTITY_NAME, "profileNotExist", "User does not have a profile"))
@@ -172,4 +174,48 @@ public class ProfileResource {
         profileService.delete(id);
         return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
     }
+
+    //https://planetcalc.com/7042/
+    //https://www.latlong.net/
+    @GetMapping("/profiles/by-location")
+    public List<ProfileDistanceDTO> getEventsByLocationNear(
+        @RequestParam("lat") Double latitude,
+        @RequestParam("long") Double longitude,
+        @RequestParam("d") Double distance) {
+
+        final double[] d = new double[1];
+        return profileRepository.findAll().stream()
+            .filter(profile -> {
+                log.debug("/profiles/by-location - filtering profile by location : {}", profile.getDisplayName());
+                Location location = profile.getLocation();
+                if (location == null) return false;
+                d[0] = distance(location.getLatitude(), location.getLongitude(), latitude, longitude, "K");
+                log.debug("/profiles/by-location - distance : {}", d[0]);
+                if (d[0] <= distance) return true;
+                else return false;
+            })
+            .map(profile -> new ProfileDistanceDTO(profile, d[0]))
+            .sorted(Comparator.comparing(ProfileDistanceDTO::getDistance))
+            .collect(Collectors.toList());
+    }
+
+    private static double distance(double lat1, double lon1, double lat2, double lon2, String unit) {
+        if ((lat1 == lat2) && (lon1 == lon2)) {
+            return 0;
+        } else {
+            double theta = lon1 - lon2;
+            double dist = Math.sin(Math.toRadians(lat1)) * Math.sin(Math.toRadians(lat2)) +
+                          Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2)) * Math.cos(Math.toRadians(theta));
+            dist = Math.acos(dist);
+            dist = Math.toDegrees(dist);
+            dist = dist * 60 * 1.1515;
+            if (unit == "K") {
+                dist = dist * 1.609344;
+            } else if (unit == "N") {
+                dist = dist * 0.8684;
+            }
+            return (dist);
+        }
+    }
+
 }
