@@ -1,0 +1,26 @@
+{
+  "socialNetworkBackendApp": {
+    "directMessage": {
+      "home": {
+        "title": "Direct Messages",
+        "createLabel": "Crear nuevo Direct Message",
+        "createOrEditLabel": "Crear o editar Direct Message"
+      },
+      "created": "Un nuevo Direct Message ha sido creado con el identificador {{ param }}",
+      "updated": "Un Direct Message ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Direct Message ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Direct Message {{ id }}?"
+      },
+      "detail": {
+        "title": "Direct Message"
+      },
+      "createdDate": "Created Date",
+      "message": "Message",
+      "url": "Url",
+      "picture": "Picture",
+      "sender": "Sender",
+      "recipient": "Recipient"
+    }
+  }
+}

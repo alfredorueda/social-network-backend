@@ -1,0 +1,26 @@
+{
+  "socialNetworkBackendApp": {
+    "directMessage": {
+      "home": {
+        "title": "Direct Messages",
+        "createLabel": "Create a new Direct Message",
+        "createOrEditLabel": "Create or edit a Direct Message"
+      },
+      "created": "A new Direct Message is created with identifier {{ param }}",
+      "updated": "A Direct Message is updated with identifier {{ param }}",
+      "deleted": "A Direct Message is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Direct Message {{ id }}?"
+      },
+      "detail": {
+        "title": "Direct Message"
+      },
+      "createdDate": "Created Date",
+      "message": "Message",
+      "url": "Url",
+      "picture": "Picture",
+      "sender": "Sender",
+      "recipient": "Recipient"
+    }
+  }
+}
