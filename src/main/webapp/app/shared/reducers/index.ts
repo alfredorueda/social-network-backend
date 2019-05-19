@@ -13,10 +13,6 @@ import password, { PasswordState } from 'app/modules/account/password/password.r
 import settings, { SettingsState } from 'app/modules/account/settings/settings.reducer';
 import passwordReset, { PasswordResetState } from 'app/modules/account/password-reset/password-reset.reducer';
 // prettier-ignore
-import profile, {
-  ProfileState
-} from 'app/entities/profile/profile.reducer';
-// prettier-ignore
 import gender, {
   GenderState
 } from 'app/entities/gender/gender.reducer';
@@ -48,6 +44,14 @@ import chatroom, {
 import message, {
   MessageState
 } from 'app/entities/message/message.reducer';
+// prettier-ignore
+import profile, {
+  ProfileState
+} from 'app/entities/profile/profile.reducer';
+// prettier-ignore
+import directMessage, {
+  DirectMessageState
+} from 'app/entities/direct-message/direct-message.reducer';
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 
 export interface IRootState {
@@ -70,6 +74,7 @@ export interface IRootState {
   readonly block: BlockState;
   readonly chatroom: ChatroomState;
   readonly message: MessageState;
+  readonly directMessage: DirectMessageState;
   /* jhipster-needle-add-reducer-type - JHipster will add reducer type here */
   readonly loadingBar: any;
 }
@@ -94,6 +99,7 @@ const rootReducer = combineReducers<IRootState>({
   block,
   chatroom,
   message,
+  directMessage,
   /* jhipster-needle-add-reducer-combine - JHipster will add reducer here */
   loadingBar
 });

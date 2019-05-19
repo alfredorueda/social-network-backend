@@ -59,6 +59,9 @@ public class CacheConfiguration {
             cm.createCache(edu.socialnetwork.domain.Chatroom.class.getName() + ".participants", jcacheConfiguration);
             cm.createCache(edu.socialnetwork.domain.Chatroom.class.getName() + ".messages", jcacheConfiguration);
             cm.createCache(edu.socialnetwork.domain.Message.class.getName(), jcacheConfiguration);
+            cm.createCache(edu.socialnetwork.domain.Profile.class.getName() + ".sentDirectMessages", jcacheConfiguration);
+            cm.createCache(edu.socialnetwork.domain.Profile.class.getName() + ".receivedDirectMessages", jcacheConfiguration);
+            cm.createCache(edu.socialnetwork.domain.DirectMessage.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

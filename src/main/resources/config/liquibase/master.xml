@@ -14,11 +14,13 @@
     <include file="config/liquibase/changelog/20190419151529_added_entity_Block.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190419151530_added_entity_Chatroom.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190419151531_added_entity_Message.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190519170731_added_entity_DirectMessage.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20190419151523_added_entity_constraints_Profile.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190419151528_added_entity_constraints_Invitation.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190419151529_added_entity_constraints_Block.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190419151530_added_entity_constraints_Chatroom.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20190419151531_added_entity_constraints_Message.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190519170731_added_entity_constraints_DirectMessage.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

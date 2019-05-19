@@ -11,6 +11,7 @@ import edu.socialnetwork.domain.Ethnicity;
 import edu.socialnetwork.domain.Invitation;
 import edu.socialnetwork.domain.Block;
 import edu.socialnetwork.domain.Message;
+import edu.socialnetwork.domain.DirectMessage;
 import edu.socialnetwork.domain.Chatroom;
 import edu.socialnetwork.repository.ProfileRepository;
 import edu.socialnetwork.service.ProfileService;
@@ -119,7 +120,7 @@ public class ProfileResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final ProfileResource profileResource = new ProfileResource(profileService, profileQueryService, profileRepository);
+        final ProfileResource profileResource = new ProfileResource(profileService, profileQueryService);
         this.restProfileMockMvc = MockMvcBuilders.standaloneSetup(profileResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)
@@ -833,6 +834,44 @@ public class ProfileResourceIntTest {
 
         // Get all the profileList where sentMessage equals to sentMessageId + 1
         defaultProfileShouldNotBeFound("sentMessageId.equals=" + (sentMessageId + 1));
+    }
+
+
+    @Test
+    @Transactional
+    public void getAllProfilesBySentDirectMessageIsEqualToSomething() throws Exception {
+        // Initialize the database
+        DirectMessage sentDirectMessage = DirectMessageResourceIntTest.createEntity(em);
+        em.persist(sentDirectMessage);
+        em.flush();
+        profile.addSentDirectMessage(sentDirectMessage);
+        profileRepository.saveAndFlush(profile);
+        Long sentDirectMessageId = sentDirectMessage.getId();
+
+        // Get all the profileList where sentDirectMessage equals to sentDirectMessageId
+        defaultProfileShouldBeFound("sentDirectMessageId.equals=" + sentDirectMessageId);
+
+        // Get all the profileList where sentDirectMessage equals to sentDirectMessageId + 1
+        defaultProfileShouldNotBeFound("sentDirectMessageId.equals=" + (sentDirectMessageId + 1));
+    }
+
+
+    @Test
+    @Transactional
+    public void getAllProfilesByReceivedDirectMessageIsEqualToSomething() throws Exception {
+        // Initialize the database
+        DirectMessage receivedDirectMessage = DirectMessageResourceIntTest.createEntity(em);
+        em.persist(receivedDirectMessage);
+        em.flush();
+        profile.addReceivedDirectMessage(receivedDirectMessage);
+        profileRepository.saveAndFlush(profile);
+        Long receivedDirectMessageId = receivedDirectMessage.getId();
+
+        // Get all the profileList where receivedDirectMessage equals to receivedDirectMessageId
+        defaultProfileShouldBeFound("receivedDirectMessageId.equals=" + receivedDirectMessageId);
+
+        // Get all the profileList where receivedDirectMessage equals to receivedDirectMessageId + 1
+        defaultProfileShouldNotBeFound("receivedDirectMessageId.equals=" + (receivedDirectMessageId + 1));
     }
 
 

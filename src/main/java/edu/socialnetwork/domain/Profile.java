@@ -3,19 +3,17 @@ package edu.socialnetwork.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import edu.socialnetwork.domain.enumeration.UnitSystem;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
-
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
-
-import edu.socialnetwork.domain.enumeration.UnitSystem;
+import java.util.Set;
 
 /**
  * A Profile.
@@ -26,7 +24,7 @@ import edu.socialnetwork.domain.enumeration.UnitSystem;
 public class Profile implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -102,6 +100,12 @@ public class Profile implements Serializable {
     @OneToMany(mappedBy = "sender")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Message> sentMessages = new HashSet<>();
+    @OneToMany(mappedBy = "sender")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<DirectMessage> sentDirectMessages = new HashSet<>();
+    @OneToMany(mappedBy = "recipient")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<DirectMessage> receivedDirectMessages = new HashSet<>();
     @OneToMany(mappedBy = "admin")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Chatroom> adminChatrooms = new HashSet<>();
@@ -452,6 +456,56 @@ public class Profile implements Serializable {
         this.sentMessages = messages;
     }
 
+    public Set<DirectMessage> getSentDirectMessages() {
+        return sentDirectMessages;
+    }
+
+    public Profile sentDirectMessages(Set<DirectMessage> directMessages) {
+        this.sentDirectMessages = directMessages;
+        return this;
+    }
+
+    public Profile addSentDirectMessage(DirectMessage directMessage) {
+        this.sentDirectMessages.add(directMessage);
+        directMessage.setSender(this);
+        return this;
+    }
+
+    public Profile removeSentDirectMessage(DirectMessage directMessage) {
+        this.sentDirectMessages.remove(directMessage);
+        directMessage.setSender(null);
+        return this;
+    }
+
+    public void setSentDirectMessages(Set<DirectMessage> directMessages) {
+        this.sentDirectMessages = directMessages;
+    }
+
+    public Set<DirectMessage> getReceivedDirectMessages() {
+        return receivedDirectMessages;
+    }
+
+    public Profile receivedDirectMessages(Set<DirectMessage> directMessages) {
+        this.receivedDirectMessages = directMessages;
+        return this;
+    }
+
+    public Profile addReceivedDirectMessage(DirectMessage directMessage) {
+        this.receivedDirectMessages.add(directMessage);
+        directMessage.setRecipient(this);
+        return this;
+    }
+
+    public Profile removeReceivedDirectMessage(DirectMessage directMessage) {
+        this.receivedDirectMessages.remove(directMessage);
+        directMessage.setRecipient(null);
+        return this;
+    }
+
+    public void setReceivedDirectMessages(Set<DirectMessage> directMessages) {
+        this.receivedDirectMessages = directMessages;
+    }
+
     public Set<Chatroom> getAdminChatrooms() {
         return adminChatrooms;
     }
@@ -540,5 +594,4 @@ public class Profile implements Serializable {
             ", filterPreferences='" + getFilterPreferences() + "'" +
             "}";
     }
-
 }

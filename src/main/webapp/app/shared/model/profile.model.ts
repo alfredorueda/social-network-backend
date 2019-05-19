@@ -7,6 +7,7 @@ import { IEthnicity } from 'app/shared/model/ethnicity.model';
 import { IInvitation } from 'app/shared/model/invitation.model';
 import { IBlock } from 'app/shared/model/block.model';
 import { IMessage } from 'app/shared/model/message.model';
+import { IDirectMessage } from 'app/shared/model/direct-message.model';
 import { IChatroom } from 'app/shared/model/chatroom.model';
 
 export const enum UnitSystem {
@@ -37,6 +38,8 @@ export interface IProfile {
   sentBlocks?: IBlock[];
   receivedBlocks?: IBlock[];
   sentMessages?: IMessage[];
+  sentDirectMessages?: IDirectMessage[];
+  receivedDirectMessages?: IDirectMessage[];
   adminChatrooms?: IChatroom[];
   joinedChatrooms?: IChatroom[];
 }

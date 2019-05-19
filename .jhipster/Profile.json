@@ -117,6 +117,18 @@
         },
         {
             "relationshipType": "one-to-many",
+            "otherEntityName": "directMessage",
+            "otherEntityRelationshipName": "sender",
+            "relationshipName": "sentDirectMessage"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "directMessage",
+            "otherEntityRelationshipName": "recipient",
+            "relationshipName": "receivedDirectMessage"
+        },
+        {
+            "relationshipType": "one-to-many",
             "otherEntityName": "chatroom",
             "otherEntityRelationshipName": "admin",
             "relationshipName": "adminChatroom"

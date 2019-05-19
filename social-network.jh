@@ -47,7 +47,7 @@ entity Invitation {
 }
 
 entity Block {
-	createdDate ZonedDateTime required    
+	createdDate ZonedDateTime required
 }
 
 entity Chatroom {
@@ -56,6 +56,13 @@ entity Chatroom {
 }
 
 entity Message {
+	createdDate ZonedDateTime required,
+    message String,
+    url String,
+    picture ImageBlob
+}
+
+entity DirectMessage {
 	createdDate ZonedDateTime required,
     message String,
     url String,
@@ -73,6 +80,8 @@ relationship ManyToOne {
     Profile{ethnicity(ethnicity)} to Ethnicity{user},
     Message{sender(displayName)} to Profile{sentMessage},
     Message{chatroom(topic)} to Chatroom{message},
+    DirectMessage{sender(displayName)} to Profile{sentDirectMessage},
+    DirectMessage{recipient(displayName)} to Profile{receivedDirectMessage},
     Chatroom{admin(displayName)} to Profile{adminChatroom}
 }
 
@@ -86,7 +95,7 @@ relationship OneToOne {
     Profile{user(login)} to User
 }
 
-filter * 
+filter *
 service * with serviceClass
 // Set pagination options
 paginate * with infinite-scroll

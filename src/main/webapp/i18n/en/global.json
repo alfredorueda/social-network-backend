@@ -17,6 +17,7 @@
         "block": "Block",
         "chatroom": "Chatroom",
         "message": "Message",
+        "directMessage": "Direct Message",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

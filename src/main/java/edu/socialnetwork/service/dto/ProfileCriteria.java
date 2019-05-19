@@ -1,16 +1,10 @@
 package edu.socialnetwork.service.dto;
 
+import edu.socialnetwork.domain.enumeration.UnitSystem;
+import io.github.jhipster.service.filter.*;
+
 import java.io.Serializable;
 import java.util.Objects;
-import edu.socialnetwork.domain.enumeration.UnitSystem;
-import io.github.jhipster.service.filter.BooleanFilter;
-import io.github.jhipster.service.filter.DoubleFilter;
-import io.github.jhipster.service.filter.Filter;
-import io.github.jhipster.service.filter.FloatFilter;
-import io.github.jhipster.service.filter.IntegerFilter;
-import io.github.jhipster.service.filter.LongFilter;
-import io.github.jhipster.service.filter.StringFilter;
-import io.github.jhipster.service.filter.LocalDateFilter;
 
 /**
  * Criteria class for the Profile entity. This class is used in ProfileResource to
@@ -68,6 +62,10 @@ public class ProfileCriteria implements Serializable {
     private LongFilter receivedBlockId;
 
     private LongFilter sentMessageId;
+
+    private LongFilter sentDirectMessageId;
+
+    private LongFilter receivedDirectMessageId;
 
     private LongFilter adminChatroomId;
 
@@ -233,6 +231,22 @@ public class ProfileCriteria implements Serializable {
         this.sentMessageId = sentMessageId;
     }
 
+    public LongFilter getSentDirectMessageId() {
+        return sentDirectMessageId;
+    }
+
+    public void setSentDirectMessageId(LongFilter sentDirectMessageId) {
+        this.sentDirectMessageId = sentDirectMessageId;
+    }
+
+    public LongFilter getReceivedDirectMessageId() {
+        return receivedDirectMessageId;
+    }
+
+    public void setReceivedDirectMessageId(LongFilter receivedDirectMessageId) {
+        this.receivedDirectMessageId = receivedDirectMessageId;
+    }
+
     public LongFilter getAdminChatroomId() {
         return adminChatroomId;
     }
@@ -280,6 +294,8 @@ public class ProfileCriteria implements Serializable {
             Objects.equals(sentBlockId, that.sentBlockId) &&
             Objects.equals(receivedBlockId, that.receivedBlockId) &&
             Objects.equals(sentMessageId, that.sentMessageId) &&
+            Objects.equals(sentDirectMessageId, that.sentDirectMessageId) &&
+            Objects.equals(receivedDirectMessageId, that.receivedDirectMessageId) &&
             Objects.equals(adminChatroomId, that.adminChatroomId) &&
             Objects.equals(joinedChatroomId, that.joinedChatroomId);
     }
@@ -307,6 +323,8 @@ public class ProfileCriteria implements Serializable {
         sentBlockId,
         receivedBlockId,
         sentMessageId,
+        sentDirectMessageId,
+        receivedDirectMessageId,
         adminChatroomId,
         joinedChatroomId
         );
@@ -335,6 +353,8 @@ public class ProfileCriteria implements Serializable {
                 (sentBlockId != null ? "sentBlockId=" + sentBlockId + ", " : "") +
                 (receivedBlockId != null ? "receivedBlockId=" + receivedBlockId + ", " : "") +
                 (sentMessageId != null ? "sentMessageId=" + sentMessageId + ", " : "") +
+                (sentDirectMessageId != null ? "sentDirectMessageId=" + sentDirectMessageId + ", " : "") +
+                (receivedDirectMessageId != null ? "receivedDirectMessageId=" + receivedDirectMessageId + ", " : "") +
                 (adminChatroomId != null ? "adminChatroomId=" + adminChatroomId + ", " : "") +
                 (joinedChatroomId != null ? "joinedChatroomId=" + joinedChatroomId + ", " : "") +
             "}";

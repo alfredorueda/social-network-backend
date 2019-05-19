@@ -25,4 +25,8 @@ public interface InvitationRepository extends JpaRepository<Invitation, Long>, J
     @Query("SELECT invitation FROM Invitation invitation WHERE invitation.accepted=true AND " +
         "(invitation.received=:user OR invitation.sent=:user) ")
     Page<Invitation> findAcceptedInvitations(@Param("user") Profile profile, Pageable pageable);
+
+    @Query("SELECT invitation FROM Invitation invitation WHERE invitation.accepted=true AND " +
+        "(invitation.received=:user OR invitation.sent=:user) ")
+    List<Invitation> findAcceptedInvitations(@Param("user") Profile profile);
 }

@@ -150,6 +150,14 @@ public class ProfileQueryService extends QueryService<Profile> {
                 specification = specification.and(buildSpecification(criteria.getSentMessageId(),
                     root -> root.join(Profile_.sentMessages, JoinType.LEFT).get(Message_.id)));
             }
+            if (criteria.getSentDirectMessageId() != null) {
+                specification = specification.and(buildSpecification(criteria.getSentDirectMessageId(),
+                    root -> root.join(Profile_.sentDirectMessages, JoinType.LEFT).get(DirectMessage_.id)));
+            }
+            if (criteria.getReceivedDirectMessageId() != null) {
+                specification = specification.and(buildSpecification(criteria.getReceivedDirectMessageId(),
+                    root -> root.join(Profile_.receivedDirectMessages, JoinType.LEFT).get(DirectMessage_.id)));
+            }
             if (criteria.getAdminChatroomId() != null) {
                 specification = specification.and(buildSpecification(criteria.getAdminChatroomId(),
                     root -> root.join(Profile_.adminChatrooms, JoinType.LEFT).get(Chatroom_.id)));

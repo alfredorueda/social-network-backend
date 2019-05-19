@@ -13,6 +13,7 @@ import Invitation from './invitation';
 import Block from './block';
 import Chatroom from './chatroom';
 import Message from './message';
+import DirectMessage from './direct-message';
 /* jhipster-needle-add-route-import - JHipster will add routes here */
 
 const Routes = ({ match }) => (
@@ -28,6 +29,7 @@ const Routes = ({ match }) => (
       <ErrorBoundaryRoute path={`${match.url}/block`} component={Block} />
       <ErrorBoundaryRoute path={`${match.url}/chatroom`} component={Chatroom} />
       <ErrorBoundaryRoute path={`${match.url}/message`} component={Message} />
+      <ErrorBoundaryRoute path={`${match.url}/direct-message`} component={DirectMessage} />
       {/* jhipster-needle-add-route-path - JHipster will routes here */}
     </Switch>
   </div>

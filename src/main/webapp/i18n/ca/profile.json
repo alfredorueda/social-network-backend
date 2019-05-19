@@ -35,6 +35,8 @@
       "sentBlock": "Sent Block",
       "receivedBlock": "Received Block",
       "sentMessage": "Sent Message",
+      "sentDirectMessage": "Sent Direct Message",
+      "receivedDirectMessage": "Received Direct Message",
       "adminChatroom": "Admin Chatroom",
       "joinedChatroom": "Joined Chatroom"
     }
