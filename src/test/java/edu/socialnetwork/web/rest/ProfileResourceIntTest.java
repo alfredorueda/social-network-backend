@@ -120,7 +120,7 @@ public class ProfileResourceIntTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        final ProfileResource profileResource = new ProfileResource(profileService, profileQueryService);
+        final ProfileResource profileResource = new ProfileResource(profileService, profileQueryService, null);
         this.restProfileMockMvc = MockMvcBuilders.standaloneSetup(profileResource)
             .setCustomArgumentResolvers(pageableArgumentResolver)
             .setControllerAdvice(exceptionTranslator)
@@ -244,7 +244,7 @@ public class ProfileResourceIntTest {
             .andExpect(jsonPath("$.[*].banned").value(hasItem(DEFAULT_BANNED.booleanValue())))
             .andExpect(jsonPath("$.[*].filterPreferences").value(hasItem(DEFAULT_FILTER_PREFERENCES.toString())));
     }
-    
+
     @Test
     @Transactional
     public void getProfile() throws Exception {
