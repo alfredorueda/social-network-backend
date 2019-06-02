@@ -82,7 +82,14 @@ public class DirectMessageResource {
 
         DirectMessage newDM = new DirectMessage();
         String userLogin = SecurityUtils.getCurrentUserLogin().get();
-        Profile profile = profileRepository.findByUserLogin(userLogin).get();
+
+        Optional<Profile> optionalProfile = profileRepository.findByUserLogin(userLogin);
+
+        if (!optionalProfile.isPresent()) {
+            throw new BadRequestAlertException("username " + userLogin + " has no profile" , ENTITY_NAME, "profileNotFound");
+        }
+
+        Profile profile = optionalProfile.get();
         newDM.setSender(profile);
         newDM.setRecipient(directMessage.getRecipient());
         newDM.setCreatedDate(ZonedDateTime.now(ZoneId.systemDefault()));

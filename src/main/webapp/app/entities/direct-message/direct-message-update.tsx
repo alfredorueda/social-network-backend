@@ -110,22 +110,6 @@ export class DirectMessageUpdate extends React.Component<IDirectMessageUpdatePro
                   </AvGroup>
                 ) : null}
                 <AvGroup>
-                  <Label id="createdDateLabel" for="createdDate">
-                    <Translate contentKey="socialNetworkBackendApp.directMessage.createdDate">Created Date</Translate>
-                  </Label>
-                  <AvInput
-                    id="direct-message-createdDate"
-                    type="datetime-local"
-                    className="form-control"
-                    name="createdDate"
-                    placeholder={'YYYY-MM-DD HH:mm'}
-                    value={isNew ? null : convertDateTimeFromServer(this.props.directMessageEntity.createdDate)}
-                    validate={{
-                      required: { value: true, errorMessage: translate('entity.validation.required') }
-                    }}
-                  />
-                </AvGroup>
-                <AvGroup>
                   <Label id="messageLabel" for="message">
                     <Translate contentKey="socialNetworkBackendApp.directMessage.message">Message</Translate>
                   </Label>
@@ -166,21 +150,6 @@ export class DirectMessageUpdate extends React.Component<IDirectMessageUpdatePro
                     <input id="file_picture" type="file" onChange={this.onBlobChange(true, 'picture')} accept="image/*" />
                     <AvInput type="hidden" name="picture" value={picture} />
                   </AvGroup>
-                </AvGroup>
-                <AvGroup>
-                  <Label for="sender.displayName">
-                    <Translate contentKey="socialNetworkBackendApp.directMessage.sender">Sender</Translate>
-                  </Label>
-                  <AvInput id="direct-message-sender" type="select" className="form-control" name="sender.id">
-                    <option value="" key="0" />
-                    {profiles
-                      ? profiles.map(otherEntity => (
-                          <option value={otherEntity.id} key={otherEntity.id}>
-                            {otherEntity.displayName}
-                          </option>
-                        ))
-                      : null}
-                  </AvInput>
                 </AvGroup>
                 <AvGroup>
                   <Label for="recipient.displayName">
